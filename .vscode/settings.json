@@ -1,0 +1,6 @@
+{
+    "Selfcoder.backend": "Ollama",
+    "chat.planAgent.defaultModel": "qwen2.5-coder:7b (Selfcoder)",
+    "inlineChat.defaultModel": "qwen2.5-coder:7b (Selfcoder)",
+    "CodeGPT.apiKey": "Ollama"
+}

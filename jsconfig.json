@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "checkJs": true,
+    "allowJs": true
+  },
+  "typeAcquisition": {
+    "enable": true,
+    "include": [
+      "chrome"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
+}

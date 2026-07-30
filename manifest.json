@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "All Video Downloader - Download Any Video (M3U8, MP4, WebM)",
+  "version": "1.0.0",
+  "description": "Download videos from any website including HLS (m3u8) streams with one click. Works on Vimeo, news sites, and more.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage",
+    "tabs",
+    "declarativeNetRequest",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "m3u8-worker.js",
+        "interceptor.js",
+        "icons/icon-16.png",
+        "icons/icon-48.png",
+        "icons/icon-128.png",
+        "offscreen.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": [
+        "utils.js",
+        "content.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "All Video Downloader"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

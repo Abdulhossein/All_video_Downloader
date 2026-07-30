@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'">
+    <title>All Video Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header-title">
+                <h1>🚀 Video Downloader</h1>
+                <span class="badge" id="video-count">0</span>
+            </div>
+            <button id="settings-btn" class="icon-btn" title="Settings">⚙️</button>
+        </header>
+
+        <div id="settings-panel" class="settings-panel" style="display: none;">
+            <p class="settings-title">Advanced Settings</p>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="use-local-fs"> 
+                    Silent Batch Downloads
+                </label>
+                <small>Directly saves to a chosen folder to bypass Chrome's "Ask where to save" prompt.</small>
+                <button id="choose-folder-btn" class="btn btn-secondary btn-small" style="display: none; margin-top: 5px;">📁 Choose Master Folder</button>
+                <p id="folder-status" class="status-text" style="display: none; color: green; font-size: 11px; margin-top: 2px;">✅ Folder set</p>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="download-major-types"> 
+                    Download Major File Types
+                </label>
+                <small>Detect common file types like documents, archives, and installers in addition to media.</small>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="download-all-file-types">
+                    Download All File Types
+                </label>
+                <small>Detect all file types including scripts, styles, fonts, etc.</small>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="enable-hover-buttons"> 
+                    Enable Hover Buttons
+                </label>
+                <small>Show download buttons on videos and media links.</small>
+            </div>
+        </div>
+
+        <div class="filters-bar" id="filters-bar">
+            <div class="filter-row search-row">
+                <input type="text" id="search-filter" placeholder="🔍 Search by name, format, quality...">
+                <label class="select-all-label">
+                    <input type="checkbox" id="select-all"> ✔️
+                </label>
+            </div>
+            <div class="filter-row tags">
+                <button class="filter-tag active" data-type="all">🌟 All</button>
+                <button class="filter-tag" data-type="video">🎬 Videos</button>
+                <button class="filter-tag" data-type="audio">🎵 Audio</button>
+                <button class="filter-tag" data-type="image">🖼️ Images</button>
+            </div>
+            <div class="filter-row sort-row">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="default">Default</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="size-asc">Size (Smallest)</option>
+                    <option value="size-desc">Size (Largest)</option>
+                </select>
+                <button id="rescan-btn" class="btn">🔎 Rescan</button>
+            </div>
+             <div class="filter-row sub-filters">
+                <div class="toggle-switch">
+                    <label for="files-mode-toggle">Files Mode</label>
+                    <input type="checkbox" id="files-mode-toggle" class="toggle-input">
+                    <label for="files-mode-toggle" class="toggle-label"></label>
+                </div>
+                <label>
+                    <input type="checkbox" id="show-main-types-filter"> Only show main file types
+                </label>
+            </div>
+        </div>
+
+        <main class="main">
+            <div id="loading" class="message">
+                <p>🔍 Scanning for media...</p>
+            </div>
+
+            <div id="content" style="display: none;">
+                <div id="video-list"></div>
+            </div>
+
+            <div id="empty" class="message" style="display: none;">
+                <p>🎬 No media found</p>
+                <small>Try playing a video or using the Rescan button.</small>
+            </div>
+
+            <div id="error" class="message error" style="display: none;">
+                <p id="error-text"></p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-actions">
+                <button id="download-selected-btn" class="btn btn-primary">⬇️ Download All</button>
+                <button id="copy-links-btn" class="btn btn-primary">📋 Copy Links</button>
+                <button id="refresh-btn" class="btn">🔄 Refresh</button>
+                <button id="clear-btn" class="btn btn-secondary">🗑️ Clear</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="db.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

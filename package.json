@@ -1,0 +1,16 @@
+{
+  "name": "all-video-downloader",
+  "version": "1.0.0",
+  "description": "This Chrome extension allows you to download videos from various websites.",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/chrome": "^0.2.2"
+  }
+}
