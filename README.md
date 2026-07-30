@@ -1,4 +1,4 @@
-# All Video Downloader
+# All Video Downloader (Contain Some Bugs - Will be updated later)
 
 **The ultimate browser extension for downloading any video, audio, or file from the web.**
 
